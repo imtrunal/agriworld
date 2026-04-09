@@ -1,0 +1,655 @@
+// import React, { useRef, useState } from 'react';
+// // import { AlertCircle } from 'lucide-react';
+// import { IoAlertCircleOutline } from "react-icons/io5";
+
+// const FIELDS = [
+//     { id: "name", label: "Full Name", type: "text", placeholder: "e.g. Ramesh Patel" },
+//     { id: "number", label: "Mobile No.", type: "tel", placeholder: "e.g. 9876543210" },
+//     { id: "village", label: "Village", type: "text", placeholder: "e.g. Bardoli" },
+//     { id: "taluka", label: "Taluka", type: "text", placeholder: "e.g. Bardoli" },
+//     { id: "occupation", label: "Occupation", type: "text", placeholder: "e.g. Farmer" },
+// ];
+
+// const EMPTY = { name: "", number: "", village: "", taluka: "", occupation: "" };
+
+// export default function VisitorRegistration() {
+//     //     // const GOOGLE_FORM_ID = '';
+//     //     const googleFormUrl = `https://docs.google.com/forms/d/e/1FAIpQLScLsCE7OjwXFQSWoyW_-ABPsozIiU3BKsU-8YCRIqqMw7eOeA/viewform?embedded=true`;
+
+
+//     //     return (
+//     //         <div className="min-h-screen bg-white pt-44">
+//     //             {/* Main Container */}
+//     //             {/* <div className="max-w-2xl mx-auto py-5"> */}
+
+//     //                 {/* Header Section */}
+//     //                 <div className="text-center mb-12 font-khand">
+//     //                     <h1 className="text-[40px] font-bold text-[#007038] mb-6 tracking-tight">
+//     //                         Visitor Registration
+//     //                     </h1>
+//     //                     <div className="w-96 h-[1px] bg-[#2F3840] mx-auto mb-2"></div>
+//     //                 </div>
+
+//     //                 {/* Google Form Container */}
+//     //                 <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+//     //                     <iframe
+//     //                         src={googleFormUrl}
+//     //                         width="100%"
+//     //                         height="1200"
+//     //                         frameBorder="0"
+//     //                         marginHeight="0"
+//     //                         marginWidth="0"
+//     //                         style={{ border: 'none' }}
+//     //                         title="AGRI WORLD EXPO 2025 Visitor Registration"
+//     //                     >
+//     //                         Loading…
+//     //                     </iframe>
+//     //                 </div>
+
+//     //             {/* </div> */}
+//     //         </div>
+//     //     );
+//     // }
+//     const [form, setForm] = useState(EMPTY);
+//     const [errors, setErrors] = useState({});
+//     const [status, setStatus] = useState(null); // 'saving' | 'saved' | 'error'
+//     const [savedData, setSavedData] = useState(null);
+//     const printRef = useRef(null);
+
+//     const validate = () => {
+//         const e = {};
+//         FIELDS.forEach(({ id, label }) => {
+//             if (!form[id].trim()) e[id] = `${label} is required.`;
+//         });
+//         if (form.number && !/^\d{10}$/.test(form.number.trim()))
+//             e.number = "Enter a valid 10-digit mobile number.";
+//         return e;
+//     };
+
+//     const handleChange = (e) => {
+//         const { name, value } = e.target;
+//         setForm((prev) => ({ ...prev, [name]: value }));
+//         if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
+//     };
+
+//     const handleSaveAndPrint = async () => {
+//         const e = validate();
+//         if (Object.keys(e).length) { setErrors(e); return; }
+
+//         setStatus("saving");
+
+//         try {
+//             const res = await fetch("/api/records", {
+//                 method: "POST",
+//                 headers: { "Content-Type": "application/json" },
+//                 body: JSON.stringify(form),
+//             });
+
+//             if (!res.ok) throw new Error("Server error");
+
+//             setSavedData({ ...form });
+//             setStatus("saved");
+
+//             // Trigger print after a short delay so print card renders
+//             setTimeout(() => window.print(), 300);
+
+//             // Reset form
+//             setForm(EMPTY);
+//             setErrors({});
+//         } catch {
+//             setStatus("error");
+//         }
+//     };
+
+//     const handlePrint = () => {
+//         if (!savedData) return;
+//         window.print();
+//     };
+
+//     return (
+//         <>
+//             {/* ── Screen UI ─────────────────────────── */}
+//             <div className="text-center mt-12 font-khand">
+//                 <h1 className="text-[40px] font-bold text-[#007038] mb-6 tracking-tight">
+//                     Visitor Registration
+//                 </h1>
+//                 <div className="w-96 h-[1px] bg-[#2F3840] mx-auto mb-2"></div>
+//             </div>
+//             <div className="no-print" style={styles.page}>
+//                 <div style={styles.card}>
+//                     {/* Header */}
+//                     <div style={styles.header}>
+//                         <div style={styles.badge}>नोंदणी फॉर्म</div>
+//                         <h1 style={styles.title}>Registration Form</h1>
+//                         <p style={styles.subtitle}>Fill in the details below and save the record.</p>
+//                     </div>
+
+//                     {/* Fields */}
+//                     <div style={styles.fields}>
+//                         {FIELDS.map(({ id, label, type, placeholder }) => (
+//                             <div key={id} style={styles.fieldGroup}>
+//                                 <label style={styles.label} htmlFor={id}>{label}</label>
+//                                 <input
+//                                     id={id}
+//                                     name={id}
+//                                     type={type}
+//                                     value={form[id]}
+//                                     onChange={handleChange}
+//                                     placeholder={placeholder}
+//                                     style={{
+//                                         ...styles.input,
+//                                         ...(errors[id] ? styles.inputError : {}),
+//                                     }}
+//                                 />
+//                                 {errors[id] && <span style={styles.error}>{errors[id]}</span>}
+//                             </div>
+//                         ))}
+//                     </div>
+
+//                     {/* Status message */}
+//                     {status === "saved" && (
+//                         <div style={styles.successBanner}>
+//                             ✅ Record saved to database successfully!
+//                         </div>
+//                     )}
+//                     {status === "error" && (
+//                         <div style={styles.errorBanner}>
+//                             ❌ Could not save. Make sure the backend is running on port 3001.
+//                         </div>
+//                     )}
+
+//                     {/* Buttons */}
+//                     <div style={styles.actions}>
+//                         <button
+//                             onClick={handleSaveAndPrint}
+//                             disabled={status === "saving"}
+//                             style={{
+//                                 ...styles.btn,
+//                                 ...styles.btnPrimary,
+//                                 ...(status === "saving" ? styles.btnDisabled : {}),
+//                             }}
+//                         >
+//                             {status === "saving" ? "Saving…" : "💾 Save & Print"}
+//                         </button>
+
+//                         {savedData && (
+//                             <button onClick={handlePrint} style={{ ...styles.btn, ...styles.btnOutline }}>
+//                                 🖨️ Print Again
+//                             </button>
+//                         )}
+//                     </div>
+
+//                     <p style={styles.hint}>
+//                         Clicking "Save & Print" stores the record in the database and opens the print dialog.
+//                     </p>
+//                 </div>
+//             </div>
+
+//             {/* ── Print-only receipt ─────────────────── */}
+//             {savedData && (
+//                 <div className="print-container" ref={printRef}>
+//                     <div className="print-card">
+//                         <div className="print-title">Registration Record</div>
+//                         {FIELDS.map(({ id, label }) => (
+//                             <div className="print-row" key={id}>
+//                                 <span className="print-label">{label}:</span>
+//                                 <span className="print-value">{savedData[id]}</span>
+//                             </div>
+//                         ))}
+//                         <div style={{ marginTop: 24, fontSize: 11, color: "#999", textAlign: "right" }}>
+//                             Printed on: {new Date().toLocaleString("en-IN")}
+//                         </div>
+//                     </div>
+//                 </div>
+//             )}
+//         </>
+//     );
+// }
+
+// /* ── Inline styles ───────────────────────────── */
+// const styles = {
+//     page: {
+//         // minHeight: "100vh",
+//         display: "flex",
+//         alignItems: "center",
+//         justifyContent: "center",
+//         padding: "40px 16px",
+//         background: "var(--bg)",
+//     },
+//     card: {
+//         background: "var(--card)",
+//         borderRadius: "var(--radius)",
+//         boxShadow: "var(--shadow)",
+//         border: "1px solid var(--border)",
+//         maxWidth: 520,
+//         width: "100%",
+//         padding: "40px 36px 32px",
+//     },
+//     header: {
+//         marginBottom: 32,
+//         textAlign: "center",
+//     },
+//     badge: {
+//         display: "inline-block",
+//         fontSize: 11,
+//         fontWeight: 500,
+//         letterSpacing: "0.12em",
+//         textTransform: "uppercase",
+//         color: "var(--accent)",
+//         background: "var(--accent-light)",
+//         borderRadius: 20,
+//         padding: "4px 14px",
+//         marginBottom: 12,
+//     },
+//     title: {
+//         fontFamily: "'Playfair Display', serif",
+//         fontSize: 30,
+//         fontWeight: 700,
+//         color: "var(--ink)",
+//         marginBottom: 6,
+//     },
+//     subtitle: {
+//         fontSize: 14,
+//         color: "var(--ink-light)",
+//         fontWeight: 300,
+//     },
+//     fields: {
+//         display: "flex",
+//         flexDirection: "column",
+//         gap: 18,
+//     },
+//     fieldGroup: {
+//         display: "flex",
+//         flexDirection: "column",
+//         gap: 6,
+//     },
+//     label: {
+//         fontSize: 12,
+//         fontWeight: 500,
+//         letterSpacing: "0.06em",
+//         textTransform: "uppercase",
+//         color: "var(--ink-light)",
+//     },
+//     input: {
+//         background: "var(--bg)",
+//         border: "1.5px solid var(--border)",
+//         borderRadius: 8,
+//         padding: "11px 14px",
+//         fontSize: 15,
+//         color: "var(--ink)",
+//         fontFamily: "'DM Sans', sans-serif",
+//         outline: "none",
+//         transition: "border-color 0.18s",
+//     },
+//     inputError: {
+//         borderColor: "#d9534f",
+//     },
+//     error: {
+//         fontSize: 12,
+//         color: "#d9534f",
+//     },
+//     successBanner: {
+//         marginTop: 20,
+//         background: "#eaf7ec",
+//         color: "#2e7d32",
+//         border: "1px solid #b2dfdb",
+//         borderRadius: 8,
+//         padding: "10px 14px",
+//         fontSize: 13,
+//         fontWeight: 500,
+//     },
+//     errorBanner: {
+//         marginTop: 20,
+//         background: "#fff0f0",
+//         color: "#c62828",
+//         border: "1px solid #ffcdd2",
+//         borderRadius: 8,
+//         padding: "10px 14px",
+//         fontSize: 13,
+//         fontWeight: 500,
+//     },
+//     actions: {
+//         display: "flex",
+//         gap: 12,
+//         marginTop: 28,
+//     },
+//     btn: {
+//         flex: 1,
+//         padding: "12px 0",
+//         borderRadius: 9,
+//         fontSize: 14,
+//         fontWeight: 500,
+//         cursor: "pointer",
+//         fontFamily: "'DM Sans', sans-serif",
+//         transition: "all 0.16s",
+//         border: "none",
+//     },
+//     btnPrimary: {
+//         background: "var(--accent)",
+//         color: "#fff",
+//         boxShadow: "0 2px 12px rgba(200,97,26,0.25)",
+//     },
+//     btnOutline: {
+//         background: "transparent",
+//         color: "var(--accent)",
+//         border: "1.5px solid var(--accent)",
+//     },
+//     btnDisabled: {
+//         opacity: 0.55,
+//         cursor: "not-allowed",
+//     },
+//     hint: {
+//         marginTop: 14,
+//         fontSize: 12,
+//         color: "var(--ink-light)",
+//         textAlign: "center",
+//         lineHeight: 1.5,
+//     },
+// };
+
+
+import React, { useRef, useState } from 'react';
+import { IoAlertCircleOutline } from "react-icons/io5";
+
+const FIELDS = [
+    { id: "name", label: "Full Name", type: "text", placeholder: "e.g. Ramesh Patel" },
+    { id: "number", label: "Mobile No.", type: "tel", placeholder: "e.g. 9876543210" },
+    { id: "village", label: "Village", type: "text", placeholder: "e.g. Bardoli" },
+    { id: "taluka", label: "Taluka", type: "text", placeholder: "e.g. Bardoli" },
+    { id: "occupation", label: "Occupation", type: "text", placeholder: "e.g. Farmer" },
+];
+
+const EMPTY = { name: "", number: "", village: "", taluka: "", occupation: "" };
+
+export default function VisitorRegistration() {
+    const [form, setForm] = useState(EMPTY);
+    const [errors, setErrors] = useState({});
+    const [status, setStatus] = useState(null);
+    const [savedData, setSavedData] = useState(null);
+    const printRef = useRef(null);
+
+    const validate = () => {
+        const e = {};
+        FIELDS.forEach(({ id, label }) => {
+            if (!form[id].trim()) e[id] = `${label} is required.`;
+        });
+        if (form.number && !/^\d{10}$/.test(form.number.trim()))
+            e.number = "Enter a valid 10-digit mobile number.";
+        return e;
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForm((prev) => ({ ...prev, [name]: value }));
+        if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
+    };
+
+    const handleSaveAndPrint = async () => {
+        const e = validate();
+        if (Object.keys(e).length) { setErrors(e); return; }
+
+        setStatus("saving");
+
+        try {
+            const res = await fetch("/api/records", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(form),
+            });
+
+            if (!res.ok) throw new Error("Server error");
+
+            setSavedData({ ...form });
+            setStatus("saved");
+
+            setTimeout(() => window.print(), 300);
+
+            setForm(EMPTY);
+            setErrors({});
+        } catch {
+            setStatus("error");
+        }
+    };
+
+    const handlePrint = () => {
+        window.print();
+    };
+
+    return (
+        <>
+            {/* ── Screen UI ─────────────────────────── */}
+            <div className="no-print text-center mt-12 font-khand">
+                <h1 className="text-[40px] font-bold text-[#007038] mb-6 tracking-tight">
+                    Visitor Registration
+                </h1>
+                <div className="w-96 h-[1px] bg-[#2F3840] mx-auto mb-2"></div>
+            </div>
+
+            <div className="no-print" style={styles.page}>
+                <div style={styles.card}>
+                    {/* Header */}
+                    <div style={styles.header}>
+                        <div style={styles.badge}>नोंदणी फॉर्म</div>
+                        <h1 style={styles.title}>Registration Form</h1>
+                        <p style={styles.subtitle}>Fill in the details below and save the record.</p>
+                    </div>
+
+                    {/* Fields */}
+                    <div style={styles.fields}>
+                        {FIELDS.map(({ id, label, type, placeholder }) => (
+                            <div key={id} style={styles.fieldGroup}>
+                                <label style={styles.label} htmlFor={id}>{label}</label>
+                                <input
+                                    id={id}
+                                    name={id}
+                                    type={type}
+                                    value={form[id]}
+                                    onChange={handleChange}
+                                    placeholder={placeholder}
+                                    style={{
+                                        ...styles.input,
+                                        ...(errors[id] ? styles.inputError : {}),
+                                    }}
+                                />
+                                {errors[id] && <span style={styles.error}>{errors[id]}</span>}
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Status messages */}
+                    {status === "saved" && (
+                        <div style={styles.successBanner}>
+                            ✅ Record saved to database successfully!
+                        </div>
+                    )}
+                    {status === "error" && (
+                        <div style={styles.errorBanner}>
+                            ❌ Could not save. Make sure the backend is running on port 3001.
+                        </div>
+                    )}
+
+                    {/* Buttons */}
+                    <div style={styles.actions}>
+                        <button
+                            onClick={handleSaveAndPrint}
+                            disabled={status === "saving"}
+                            style={{
+                                ...styles.btn,
+                                ...styles.btnPrimary,
+                                ...(status === "saving" ? styles.btnDisabled : {}),
+                            }}
+                        >
+                            {status === "saving" ? "Saving…" : "💾 Save & Print"}
+                        </button>
+
+                        {savedData && (
+                            <button onClick={handlePrint} style={{ ...styles.btn, ...styles.btnOutline }}>
+                                🖨️ Print Again
+                            </button>
+                        )}
+                    </div>
+
+                    <p style={styles.hint}>
+                        Clicking "Save & Print" stores the record in the database and opens the print dialog.
+                    </p>
+                </div>
+            </div>
+
+            {/* ── Print-only receipt — always in DOM, hidden via CSS ── */}
+            <div className="print-container" ref={printRef}>
+                <div className="print-card">
+                    <div className="print-title">Registration Record</div>
+                    {FIELDS.map(({ id, label }) => (
+                        <div className="print-row" key={id}>
+                            <span className="print-label">{label}:</span>
+                            <span className="print-value">{savedData ? savedData[id] : ""}</span>
+                        </div>
+                    ))}
+                    <div style={{ marginTop: 24, fontSize: 11, color: "#999", textAlign: "right" }}>
+                        {savedData && `Printed on: ${new Date().toLocaleString("en-IN")}`}
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+}
+
+/* ── Inline styles ───────────────────────────── */
+const styles = {
+    page: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "40px 16px",
+        background: "var(--bg)",
+    },
+    card: {
+        background: "var(--card)",
+        borderRadius: "var(--radius)",
+        boxShadow: "var(--shadow)",
+        border: "1px solid var(--border)",
+        maxWidth: 520,
+        width: "100%",
+        padding: "40px 36px 32px",
+    },
+    header: {
+        marginBottom: 32,
+        textAlign: "center",
+    },
+    badge: {
+        display: "inline-block",
+        fontSize: 11,
+        fontWeight: 500,
+        letterSpacing: "0.12em",
+        textTransform: "uppercase",
+        color: "var(--accent)",
+        background: "var(--accent-light)",
+        borderRadius: 20,
+        padding: "4px 14px",
+        marginBottom: 12,
+    },
+    title: {
+        fontFamily: "'Playfair Display', serif",
+        fontSize: 30,
+        fontWeight: 700,
+        color: "var(--ink)",
+        marginBottom: 6,
+    },
+    subtitle: {
+        fontSize: 14,
+        color: "var(--ink-light)",
+        fontWeight: 300,
+    },
+    fields: {
+        display: "flex",
+        flexDirection: "column",
+        gap: 18,
+    },
+    fieldGroup: {
+        display: "flex",
+        flexDirection: "column",
+        gap: 6,
+    },
+    label: {
+        fontSize: 12,
+        fontWeight: 500,
+        letterSpacing: "0.06em",
+        textTransform: "uppercase",
+        color: "var(--ink-light)",
+    },
+    input: {
+        background: "var(--bg)",
+        border: "1.5px solid var(--border)",
+        borderRadius: 8,
+        padding: "11px 14px",
+        fontSize: 15,
+        color: "var(--ink)",
+        fontFamily: "'DM Sans', sans-serif",
+        outline: "none",
+        transition: "border-color 0.18s",
+    },
+    inputError: {
+        borderColor: "#d9534f",
+    },
+    error: {
+        fontSize: 12,
+        color: "#d9534f",
+    },
+    successBanner: {
+        marginTop: 20,
+        background: "#eaf7ec",
+        color: "#2e7d32",
+        border: "1px solid #b2dfdb",
+        borderRadius: 8,
+        padding: "10px 14px",
+        fontSize: 13,
+        fontWeight: 500,
+    },
+    errorBanner: {
+        marginTop: 20,
+        background: "#fff0f0",
+        color: "#c62828",
+        border: "1px solid #ffcdd2",
+        borderRadius: 8,
+        padding: "10px 14px",
+        fontSize: 13,
+        fontWeight: 500,
+    },
+    actions: {
+        display: "flex",
+        gap: 12,
+        marginTop: 28,
+    },
+    btn: {
+        flex: 1,
+        padding: "12px 0",
+        borderRadius: 9,
+        fontSize: 14,
+        fontWeight: 500,
+        cursor: "pointer",
+        fontFamily: "'DM Sans', sans-serif",
+        transition: "all 0.16s",
+        border: "none",
+    },
+    btnPrimary: {
+        background: "var(--accent)",
+        color: "#fff",
+        boxShadow: "0 2px 12px rgba(200,97,26,0.25)",
+    },
+    btnOutline: {
+        background: "transparent",
+        color: "var(--accent)",
+        border: "1.5px solid var(--accent)",
+    },
+    btnDisabled: {
+        opacity: 0.55,
+        cursor: "not-allowed",
+    },
+    hint: {
+        marginTop: 14,
+        fontSize: 12,
+        color: "var(--ink-light)",
+        textAlign: "center",
+        lineHeight: 1.5,
+    },
+};

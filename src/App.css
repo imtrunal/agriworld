@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@theme {
+  /* --font-roboto: "Roboto", sans-serif; */
+  --font-khand: "khand";
+}
+
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} */
+
+
+/* ── Print styles ─────────────────────────────── */
+/* @media print {
+
+  @page {
+    margin: 10mm;
+    size: auto;
+  }
+
+  html,
+  body,
+  #root {
+    height: auto !important;
+    min-height: unset !important;
+    overflow: hidden !important;
+  }
+
+  body * {
+    display: none !important;
+  }
+
+  .print-container {
+    display: none;
+  }
+
+  #root,
+  #root>.print-container,
+  .print-container,
+  .print-container * {
+    display: revert !important;
+    visibility: visible !important;
+  }
+
+  .print-container {
+    display: block;
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-card {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    border-radius: 8px !important;
+    padding: 32px !important;
+    page-break-inside: avoid !important;
+    page-break-after: avoid !important;
+    page-break-before: avoid !important;
+    max-width: 700px !important;
+    margin: 0 auto !important;
+    font-family: serif !important;
+  }
+
+  .print-title {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    margin-bottom: 20px !important;
+    text-align: center !important;
+    display: block !important;
+  }
+
+  .print-row {
+    display: flex !important;
+    gap: 12px !important;
+    padding: 10px 0 !important;
+    border-bottom: 1px solid #eee !important;
+    font-size: 14px !important;
+  }
+
+  .print-label {
+    font-weight: 600 !important;
+    width: 130px !important;
+    flex-shrink: 0 !important;
+    color: #555 !important;
+  }
+
+  .print-value {
+    color: #111 !important;
+  }
+} */
+
+
+/* ── Hide print container on screen always ── */
+.print-container {
+  display: none;
+}
+
+@media print {
+  @page {
+    margin: 10mm;
+    size: auto;
+  }
+
+  html, body, #root {
+    height: auto !important;
+    min-height: unset !important;
+    overflow: hidden !important;
+  }
+
+  body * {
+    display: none !important;
+  }
+
+  #root,
+  #root > .print-container,
+  .print-container,
+  .print-container * {
+    display: revert !important;
+    visibility: visible !important;
+  }
+
+  .print-container {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-card {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    border-radius: 8px !important;
+    padding: 32px !important;
+    max-width: 700px !important;
+    margin: 0 auto !important;
+    font-family: serif !important;
+    page-break-inside: avoid !important;
+    page-break-after: avoid !important;
+    page-break-before: avoid !important;
+  }
+
+  .print-title {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    margin-bottom: 20px !important;
+    text-align: center !important;
+    display: block !important;
+  }
+
+  .print-row {
+    display: flex !important;
+    gap: 12px !important;
+    padding: 10px 0 !important;
+    border-bottom: 1px solid #eee !important;
+    font-size: 14px !important;
+  }
+
+  .print-label {
+    font-weight: 600 !important;
+    width: 130px !important;
+    flex-shrink: 0 !important;
+    color: #555 !important;
+  }
+
+  .print-value {
+    color: #111 !important;
+  }
+}
+
