@@ -6,8 +6,8 @@ import { FaMailBulk } from "react-icons/fa";
 const Footer = () => {
     return (
         <>
-            <div className='max-w-full bg-[#0F1419] text-white font-khand px-5'>
-                <div className="max-w-[1400px] mx-auto">
+            <div className='max-w-[1440px] mx-auto bg-[#0F1419] text-white font-khand'>
+                <div className="max-w-[1440px] mx-auto px-5">
                     <div className='grid md:grid-cols-3 grid-cols-1 gap-5 py-16'>
                         <div>
                             <div>
@@ -93,8 +93,8 @@ const Footer = () => {
                 </div>
 
             </div>
-            <div className="max-w-full bg-[#007038] text-white font-khand font-medium px-3">
-                <div className=' py-3 max-w-[1400px] mx-auto'>
+            <div className="max-w-[1440px] mx-auto bg-[#007038] text-white font-khand font-medium">
+                <div className='py-3 max-w-[1440px] mx-auto px-5'>
                     <div className='grid grid-cols-1 md:grid-cols-2 text-center'>
                         <p className='md:text-start'>Copyright © 2026 Khedutputra Krushi Melo</p>
                         <p className='md:text-end'>Developed By <a href="https://sughosh.dev" target="_blank" rel="noopener noreferrer" className="hover:underline">

@@ -35,7 +35,7 @@ const HeroSection = () => {
     }, []);
     return (
         <>
-            <div className="max-w-[1440px] font-khand mx-auto pt-20">
+            <div className="max-w-[1440px] font-khand mx-auto pt-20 px-5">
                 <div className="relative w-full h-[200px] md:h-[400px] lg:h-[637px] overflow-hidden ">
 
                     {/* Images */}

@@ -4,13 +4,13 @@ import { FaCheckSquare } from "react-icons/fa";
 const PromotionalActivities = () => {
     return (
         <>
-            <div className=' mt-30 pt-28 font-khand px-10'>
+            <div className='max-w-[1440px] mx-auto mt-30 pt-28 font-khand px-5'>
                 <div>
                     <div className="text-center mb-12 font-khand">
                         <h1 className="text-[40px] font-bold text-[#007038] mb-6 tracking-tight">
                             Promotional Activities
                         </h1>
-                        <div className="w-96 h-[1px] bg-[#2F3840] mx-auto mb-2"></div>
+                        <div className="w-96 h-px bg-[#2F3840] mx-auto mb-2"></div>
                     </div>
 
                     <div className='grid md:grid-cols-2 grid-cols-1 gap-15'>

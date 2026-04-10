@@ -79,7 +79,7 @@ button:focus-visible {
   --border: #007038;
   --shadow: 0 4px 24px rgba(26,18,8,0.10);
   --radius: 14px;
-  padding-top: 100px;
+  /* padding-top: 100px; */
 }
 
 body {
@@ -87,6 +87,9 @@ body {
   background: var(--bg);
   min-height: 100vh;
   color: var(--ink);
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
 }
 
 

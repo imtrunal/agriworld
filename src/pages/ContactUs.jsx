@@ -58,7 +58,7 @@ const ContactUs = () => {
 
     if (submitted) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+            <div className="max-w-[1440px] mx-auto flex items-center justify-center min-h-[60vh] bg-gray-50 px-4 py-28 mt-30 font-khand">
                 <div className="text-center">
                     <FaCheckCircle className="text-green-600 text-6xl mx-auto mb-4" />
                     <p className="text-2xl font-bold text-gray-800 mb-2">Success!</p>
@@ -71,15 +71,15 @@ const ContactUs = () => {
     }
     return (
         <>
-            <div className=" mx-auto mt-30 py-28 px-5 font-khand">
+            <div className="max-w-[1440px] mx-auto mt-30 py-28 px-5 font-khand">
                 {/* Header */}
                 <div className="text-center mb-12 font-khand">
                     <h1 className="text-[40px] font-bold text-[#007038] mb-6 tracking-tight">
                         Glimpses of the Past
                     </h1>
-                    <div className="w-96 h-[1px] bg-[#2F3840] mx-auto mb-2"></div>
+                    <div className="w-96 h-px bg-[#2F3840] mx-auto mb-2"></div>
                 </div>
-                {/* <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 mt-20"> */}
+                {/* Form Container */}
                 <div className="grid md:grid-cols-2 grid-cols-1 border border-gray-50 shadow-lg">
                     <div>
                         <div className="bg-gray-50 p-8">

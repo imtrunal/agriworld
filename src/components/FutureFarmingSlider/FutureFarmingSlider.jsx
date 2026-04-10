@@ -32,7 +32,7 @@ const FutureFarmingSlider = () => {
         }, []);
     return (
         <>
-            <div className="max-w-[1440px] font-khand mx-auto pt-8 ">
+            <div className="max-w-[1440px] font-khand mx-auto pt-8 px-5">
                 <div className="relative w-full h-[200px] md:h-[400px] lg:h-[600px] overflow-hidden ">
 
                     {/* Images */}

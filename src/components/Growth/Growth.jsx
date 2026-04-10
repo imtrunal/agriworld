@@ -11,13 +11,13 @@ const Growth = () => {
   return (
     <>
       <div>
-        <div className=' max-w-[1440px] mx-auto font-khand pb-5'>
+        <div className='max-w-[1440px] mx-auto font-khand pb-5'>
           <div className="bg-[#DFFFEF]">
             <h1 className="font-khand font-bold text-4xl text-[#007038] text-center py-10">ADVANTAGES AND BENEFITS FOR PARTICIPANTS</h1>
           </div>
 
 
-          <div className='max-w-[1360px] mx-auto py-8 px-5'>
+          <div className='py-8 px-5'>
             <h1 className='text-[34px] font-bold'>Attend Seminars On</h1>
 
             <div className='grid md:grid-cols-2 grid-cols-1 py-4'>
@@ -64,12 +64,12 @@ const Growth = () => {
         </div>
 
 
-        <div className=' max-w-[1450px] mx-auto font-khand py-10'>
+        <div className='max-w-[1440px] mx-auto font-khand py-10'>
           <div className="bg-[#DFFFEF]">
             <h1 className="font-khand font-bold text-4xl text-[#007038] text-center py-10">FUTURE OF FARMING IS HERE !</h1>
           </div>
 
-          <div className='max-w-[1400px] mx-auto py-8 px-3'>
+          <div className='py-8 px-5'>
             <div className='md:flex justify-between gap-12'>
               <div>
                 <h2 className='text-[#007038] font-bold text-[28px] py-3 mt-10'>Agriculture Equipment</h2>

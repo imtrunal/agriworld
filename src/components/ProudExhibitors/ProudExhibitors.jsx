@@ -3,7 +3,7 @@ import React from 'react'
 const ProudExhibitors = () => {
     return (
         <>
-            <div className=' max-w-[1440px] mx-auto font-khand'>
+            <div className='max-w-[1440px] mx-auto font-khand px-5'>
                 {/* <div className="bg-[#DFFFEF]">
                     <h1 className="font-khand font-bold text-4xl text-[#007038] text-center py-10">OUR PROUD EXHIBITORS</h1>
                 </div>

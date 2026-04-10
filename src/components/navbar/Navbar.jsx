@@ -14,19 +14,17 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full font-khand fixed top-0 left-0 z-50">
-
+    <div className="w-full max-w-[1440px] mx-auto font-khand">
       {/* Top Info Bar */}
       <div className="bg-green-800 text-white text-sm">
-        <div className="max-w-[1440px] mx-auto grid md:grid-cols-2 grid-cols-1 justify-between items-center px-6 py-2">
+        <div className="max-w-[1440px] mx-auto justify-between items-center px-6 py-2">
 
-          <div className="lg:flex flex-1 items-center gap-4">
+          <div className="lg:flex flex-1 justify-center items-center gap-4">
             <div className="flex gap-1 lg:justify-start justify-center">
               <span className="bg-white py-1 text-green-800 px-2 font-semibold">11</span>
               <span className="bg-white py-1 text-green-800 px-2 font-semibold">12</span>
               <span className="bg-white py-1 text-green-800 px-2 font-semibold">13</span>
             </div>
-
 
             <div className="flex items-center gap-1 lg:pt-0 pt-2 lg:justify-start justify-center">
             <span className="lg:text-[16px] text-[15px] font-medium">April 2026</span>

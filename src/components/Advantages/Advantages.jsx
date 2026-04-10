@@ -4,7 +4,7 @@ const Advantages = () => {
     return (
         <>
             <section>
-                <div className=' max-w-[1440px] mx-auto bg-green-700'>
+                <div className='max-w-[1440px] mx-auto bg-green-700'>
                     <div className="bg-[#DFFFEF]">
                         <h1 className="font-khand font-bold text-4xl text-green-700 text-center py-10">ADVANTAGES AND BENEFITS FOR PARTICIPANTS</h1>
                     </div>

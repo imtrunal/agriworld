@@ -478,12 +478,12 @@ export default function VisitorRegistration() {
   return (
     <>
       {/* ── Screen UI ─────────────────────────── */}
-      <div className="no-print text-center mt-12 font-khand">
+      <div className="no-print text-center mt-12 font-khand max-w-[1440px] mx-auto">
         <h1 className="text-[40px] font-bold text-[#007038] mb-6 tracking-tight">Visitor Registration</h1>
-        <div className="w-96 h-[1px] bg-[#2F3840] mx-auto mb-2"></div>
+        <div className="w-96 h-px bg-[#2F3840] mx-auto mb-2"></div>
       </div>
 
-      <div className="no-print" style={styles.page}>
+      <div className="no-print max-w-[1440px] mx-auto" style={styles.page}>
         <div style={styles.card}>
           {/* Header */}
           <div style={styles.header}>
