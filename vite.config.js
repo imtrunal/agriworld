@@ -12,10 +12,10 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
-  server: {
-    port: 5173,
-    proxy: {
-      "/api": "https://agriworld-be.onrender.com",
-    },
-  },
+  // server: {
+  //   port: 5173,
+  //   proxy: {
+  //     "/api": "https://agriworld-be.onrender.com",
+  //   },
+  // },
 })

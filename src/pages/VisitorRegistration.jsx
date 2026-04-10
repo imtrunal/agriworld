@@ -396,13 +396,19 @@ export default function VisitorRegistration() {
     setStatus("saving");
 
     try {
-      const res = await fetch("/api/records", {
+      const apiUrl = `${import.meta.env.VITE_API_URL}/api/records`;
+      const res = await fetch(apiUrl, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify(form),
       });
 
-      if (!res.ok) throw new Error("Server error");
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.message || `Server error: ${res.status}`);
+      }
 
       setSavedData({ ...form });
       setStatus("saved");
@@ -412,7 +418,7 @@ export default function VisitorRegistration() {
       setForm(EMPTY);
       setErrors({});
     } catch (error) {
-      console.log(error);
+      console.error("API Error:", error);
       setStatus("error");
     }
   };
@@ -455,7 +461,8 @@ export default function VisitorRegistration() {
 
   const handleExportData = async () => {
     try {
-      window.open("/api/records/export", "_blank");
+      const apiUrl = `${import.meta.env.VITE_API_URL}/api/records/export`;
+      window.open(apiUrl, "_blank");
     } catch (error) {
       console.error("Export failed:", error);
       setPasswordError("Failed to export data. Please try again.");
