@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full max-w-[1440px] mx-auto font-khand">
+    <div className="w-full max-w-[1440px] sticky top-0 mx-auto font-khand z-50">
       {/* Top Info Bar */}
       <div className="bg-green-800 text-white text-sm">
         <div className="max-w-[1440px] mx-auto justify-between items-center px-6 py-2">
@@ -238,7 +238,7 @@ const Navbar = () => {
                   >
                     <Link to="/exhibitors-profile">Exhibitors' Profile</Link>
                   </div>
-                  <div
+                  {/* <div
                     className="py-2 text-gray-700 hover:text-[#007038] cursor-pointer text-sm"
                     onClick={() => {
                       setMobileMenu(false);
@@ -246,7 +246,7 @@ const Navbar = () => {
                     }}
                   >
                     <Link to="/promotional-activities">Promtional Activities</Link>
-                  </div>
+                  </div> */}
                   <div
                     className="py-2 text-gray-700 hover:text-[#007038] cursor-pointer text-sm"
                     onClick={() => {
@@ -336,7 +336,7 @@ const Navbar = () => {
                   >
                     <Link to="">Brochure</Link>
                   </div>
-                  <div
+                  {/* <div
                     className="py-2 text-gray-700 hover:text-[#007038] cursor-pointer text-sm"
                     onClick={() => {
                       window.open('/pdfs/brochure-gujarati.pdf', '_blank');
@@ -345,13 +345,13 @@ const Navbar = () => {
                     }}
                   >
                     <Link to="">Brochure (Gujarati)</Link>
-                  </div>
+                  </div> */}
                 </div>
               )}
             </li>
 
             {/* Gallery */}
-            <li
+            {/* <li
               className="py-3 border-b border-gray-200 cursor-pointer hover:text-[#007038] transition-colors"
               onClick={() => {
                 setMobileMenu(false);
@@ -359,7 +359,7 @@ const Navbar = () => {
               }}
             >
               <Link to="/gallery">Gallery</Link>
-            </li>
+            </li> */}
 
             {/* About with Submenu */}
             <li className="border-b border-gray-200">
@@ -387,7 +387,7 @@ const Navbar = () => {
                   >
                     <Link to="/about">About Khedutputra Krushi Melo</Link>
                   </div>
-                  <div
+                  {/* <div
                     className="py-2 text-gray-700 hover:text-[#007038] cursor-pointer text-sm"
                     onClick={() => {
                       setMobileMenu(false);
@@ -395,7 +395,7 @@ const Navbar = () => {
                     }}
                   >
                     <Link to="/about-spark-media">About Spark Media</Link>
-                  </div>
+                  </div> */}
                 </div>
               )}
             </li>
