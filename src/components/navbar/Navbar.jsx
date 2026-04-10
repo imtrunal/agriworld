@@ -37,12 +37,12 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="flex gap-4 text-lg md:justify-end justify-center lg:pt-0 pt-2">
+          {/* <div className="flex gap-4 text-lg md:justify-end justify-center lg:pt-0 pt-2">
             <FaInstagram className="cursor-pointer hover:text-gray-200" />
             <FaFacebookF className="cursor-pointer hover:text-gray-200" />
             <FaLinkedinIn className="cursor-pointer hover:text-gray-200" />
             <BsThreads className="cursor-pointer hover:text-gray-200" />
-          </div>
+          </div> */}
 
         </div>
       </div>
@@ -52,7 +52,9 @@ const Navbar = () => {
         <div className="max-w-[1440px] mx-auto flex justify-between items-center px-6">
 
           {/* Logo */}
-          <img src="/assets/Logo-01.png" alt="logo1" className="h-22 w-25" />
+          <Link to={"/"}>
+            <img src="/assets/Logo-01.png" alt="logo1" className="h-22 w-25" />
+          </Link>
 
           {/* Desktop Menu */}
           <ul className="hidden lg:flex items-center gap-8 font-semibold text-gray-800">

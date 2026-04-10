@@ -6,10 +6,12 @@ import { FaLocationDot } from "react-icons/fa6";
 import { GiFoldedPaper } from "react-icons/gi";
 import { FaHandshakeSimple } from "react-icons/fa6";
 import { FaRegLightbulb } from "react-icons/fa6";
+import img1 from "../../assets/MainBanner.jpeg"
 
 const images = [
-    "https://agriworldexpo.in/wp-content/uploads/2024/09/AgriWorldExpo-Slide-5-Opt.jpg",
-    "https://agriworldexpo.in/wp-content/uploads/2024/09/AgriWorldExpo-Slide-1-Opt.jpg",
+    img1,
+    // "https://agriworldexpo.in/wp-content/uploads/2024/09/AgriWorldExpo-Slide-5-Opt.jpg",
+    // "https://agriworldexpo.in/wp-content/uploads/2024/09/AgriWorldExpo-Slide-1-Opt.jpg",
 ];
 
 const HeroSection = () => {
@@ -33,7 +35,7 @@ const HeroSection = () => {
     }, []);
     return (
         <>
-            <div className="max-w-[1440px] font-khand mx-auto mt-46  md:mt-18 md:py-18">
+            <div className="max-w-[1440px] font-khand mx-auto pt-20">
                 <div className="relative w-full h-[200px] md:h-[400px] lg:h-[637px] overflow-hidden ">
 
                     {/* Images */}
@@ -46,7 +48,7 @@ const HeroSection = () => {
                             <img
                                 src={img}
                                 alt="slider"
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-contain"
                             />
                         </div>
                     ))}

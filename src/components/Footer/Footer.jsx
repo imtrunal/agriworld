@@ -67,13 +67,10 @@ const Footer = () => {
 
                             <div className=''>
                                 <div>
-                                    <p className='flex items-center py-3 text-[17.6px] font-medium max-w-[330px]'><span className=' pr-2'><FaLocationDot /></span>1116, 11th floor, Maple Trade Center,Memnagar, Ahmedabad, Gujarat - 380007, India</p>
+                                    <p className='flex items-center py-3 text-[17.6px] font-medium max-w-[330px]'><span className=' pr-2'><FaLocationDot /></span>5, Vrundavan City Complex, 50ft Vavdi Main Road, Punit Nagar, Rajkot - 360004</p>
                                 </div>
                                 <div>
-                                    <p className='flex items-center py-2 text-[17px] font-medium'><span className=' pr-2'><IoCall /></span>+91 97585674856</p>
-                                </div>
-                                <div>
-                                    <p className='flex items-center py-2 text-[17px] font-medium'><span className=' pr-2'><IoCall /></span>+91 97585674856</p>
+                                    <p className='flex items-center py-2 text-[17px] font-medium'><span className=' pr-2'><IoCall /></span>+91 90331 48188</p>
                                 </div>
 
 
@@ -81,14 +78,14 @@ const Footer = () => {
                                     <h2 className='py-3 text-[17.6px] font-medium'>For General Inquiries:</h2>
 
                                     <div>
-                                        <p className='flex items-center py-2 text-[17.6px] font-medium'><span className=' pr-2'><FaMailBulk /></span>info@agriworld.com</p>
+                                        <p className='flex items-center py-2 text-[17.6px] font-medium'><span className=' pr-2'><FaMailBulk /></span>khedutputragujarati@gmail.com</p>
                                     </div>
 
-                                    <h2 className='text-[17.6px] font-medium py-3'>For Sales:</h2>
+                                    {/* <h2 className='text-[17.6px] font-medium py-3'>For Sales:</h2>
 
                                     <div>
                                         <p className='flex items-center py-2 text-[17.6px] font-medium'><span className=' pr-2'><FaMailBulk /></span>sales@agriworld.com</p>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
@@ -99,8 +96,10 @@ const Footer = () => {
             <div className="max-w-full bg-[#007038] text-white font-khand font-medium px-3">
                 <div className=' py-3 max-w-[1400px] mx-auto'>
                     <div className='grid grid-cols-1 md:grid-cols-2 text-center'>
-                        <p className='md:text-start'>Copyright © 2025 Khedutputra Krushi Melo</p>
-                        <p className='md:text-end'><button>Private Policy</button> Developed By <button>Sughosh Technolab</button></p>
+                        <p className='md:text-start'>Copyright © 2026 Khedutputra Krushi Melo</p>
+                        <p className='md:text-end'>Developed By <a href="https://sughosh.dev" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                            Sughosh Technolab
+                        </a></p>
                     </div>
                 </div>
             </div>

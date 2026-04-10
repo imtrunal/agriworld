@@ -157,7 +157,7 @@ const ContactUs = () => {
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-10">
+                        <div className="flex py-5 mt-4">
                             <div className="flex">
                                 <div className="bg-[#FF5E1424] flex items-center justify-center w-10 h-10 rounded-full ">
                                     <span className="text-[#007038] text-center text-[20px] "><MdCall /></span>
@@ -165,11 +165,13 @@ const ContactUs = () => {
 
                                 <div className="text-black font-medium  pl-4">
                                     <h4 className="text-[#007038] font-bold text-[18px]">Call Us</h4>
-                                    <p><button>+91 85669784527</button></p>
-                                    <p><button>+91 85669784527</button></p>
+                                    <p><button>+91 90331 48188</button></p>
+                                    {/* <p><button>+91 85669784527</button></p> */}
                                 </div>
                             </div>
+                        </div>
 
+                        <div className="flex py-5 mt-4">
                             <div className="flex">
                                 <div className="bg-[#FF5E1424] flex items-center justify-center w-10 h-10 rounded-full ">
                                     <span className="text-[#007038] text-center text-[20px] "><FaLocationDot /></span>
@@ -177,11 +179,7 @@ const ContactUs = () => {
 
                                 <div className="text-black font-medium  pl-4">
                                     <h4 className="text-[#007038] font-bold text-[18px]">Our Location</h4>
-                                    <p className="max-w-[120px]">Spark Media,
-                                        1116, 11th floor,
-                                        Maple Trade Center,
-                                        Memnagar, Ahmedabad,
-                                        Gujarat - 380007, India</p>
+                                    <p>5, Vrundavan City Complex, 50ft Vavdi Main Road, Punit Nagar, Rajkot - 360004</p>
                                 </div>
                             </div>
                         </div>
@@ -193,54 +191,8 @@ const ContactUs = () => {
 
                             <div className="text-black font-medium  pl-4">
                                 <h4 className="text-[#007038] font-bold text-[18px]">Our Email</h4>
-                                <p><strong>For Sales:</strong> sales@agriworldexpo.in</p>
-                                <p><strong>For General Inquiries:</strong>info@agriworldexpo.in</p>
-                            </div>
-                        </div>
-
-                        {/* <div>
-                            <h1>Follow Us</h1>
-
-                            <div>
-
-                            </div>
-                        </div> */}
-
-                        <div className="flex flex-col items-start gap-8 py-12">
-                            {/* Title */}
-                            <h2 className="text-3xl md:text-4xl font-bold text-[#007038] ">Follow Us</h2>
-
-                            {/* Social Icons */}
-                            <div className="flex gap-6">
-                                {/* Instagram */}
-                                <a
-                                    href="https://instagram.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center justify-center w-9.75 h-9.75 bg-[#007038] hover:bg-green-700 rounded-full transition-colors duration-300 shadow-md hover:shadow-lg"
-                                >
-                                    <FaInstagram className="text-white text-xl" />
-                                </a>
-
-                                {/* Facebook */}
-                                <a
-                                    href="https://facebook.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center justify-center w-9.75 h-9.75 bg-[#007038] hover:bg-green-700 rounded-full transition-colors duration-300 shadow-md hover:shadow-lg"
-                                >
-                                    <FaFacebookF className="text-white text-xl" />
-                                </a>
-
-                                {/* YouTube */}
-                                <a
-                                    href="https://youtube.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center justify-center w-9.75 h-9.75 bg-[#007038] hover:bg-green-700 rounded-full transition-colors duration-300 shadow-md hover:shadow-lg"
-                                >
-                                    <FaYoutube className="text-white text-xl" />
-                                </a>
+                                {/* <p><strong>For Sales:</strong> sales@agriworldexpo.in</p> */}
+                                <p><strong>For General Inquiries:</strong>khedutputragujarati@gmail.com</p>
                             </div>
                         </div>
                     </div>

@@ -4,7 +4,7 @@ const ProudExhibitors = () => {
     return (
         <>
             <div className=' max-w-[1440px] mx-auto font-khand'>
-                <div className="bg-[#DFFFEF]">
+                {/* <div className="bg-[#DFFFEF]">
                     <h1 className="font-khand font-bold text-4xl text-[#007038] text-center py-10">OUR PROUD EXHIBITORS</h1>
                 </div>
 
@@ -25,7 +25,7 @@ const ProudExhibitors = () => {
                         <img src="https://agriworldexpo.in/wp-content/uploads/2024/09/Exhibitors-59-150x150.jpg" alt="" className='mx-auto' />
                         <img src="https://agriworldexpo.in/wp-content/uploads/2024/09/Exhibitors-61-150x150.jpg" alt="" className='mx-auto' />
                     </div>
-                </div>
+                </div> */}
 
                 <div className="bg-[#DFFFEF]">
                     <h1 className="font-khand font-bold text-4xl text-[#007038] text-center py-10">ORGANIZED BY</h1>
