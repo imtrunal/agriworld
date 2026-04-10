@@ -411,7 +411,8 @@ export default function VisitorRegistration() {
 
       setForm(EMPTY);
       setErrors({});
-    } catch {
+    } catch (error) {
+      console.log(error);
       setStatus("error");
     }
   };
@@ -433,10 +434,10 @@ export default function VisitorRegistration() {
 
   const handlePasswordSubmit = async () => {
     setPasswordLoading(true);
-    
+
     try {
       const correctPassword = import.meta.env.VITE_PASSWORD;
-      
+
       if (password === correctPassword) {
         setPasswordError("");
         setShowPasswordModal(false);
@@ -572,18 +573,12 @@ export default function VisitorRegistration() {
           <div style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             <div style={styles.modalHeader}>
               <h2 style={styles.modalTitle}>Enter Password</h2>
-              <button
-                onClick={handleClosePasswordModal}
-                style={styles.closeButton}
-                aria-label="Close modal"
-              >
+              <button onClick={handleClosePasswordModal} style={styles.closeButton} aria-label="Close modal">
                 ✕
               </button>
             </div>
 
-            <p style={styles.modalSubtitle}>
-              Please enter the password to export the registration data.
-            </p>
+            <p style={styles.modalSubtitle}>Please enter the password to export the registration data.</p>
 
             <div style={styles.passwordFieldGroup}>
               <label style={styles.passwordLabel} htmlFor="export-password">
