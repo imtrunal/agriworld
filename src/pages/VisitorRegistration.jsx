@@ -354,7 +354,18 @@ const FIELDS = [
   { id: "number", label: "Mobile No.", type: "tel", placeholder: "e.g. 9876543210" },
   { id: "village", label: "Village", type: "text", placeholder: "e.g. Bardoli" },
   { id: "taluka", label: "Taluka", type: "text", placeholder: "e.g. Bardoli" },
-  { id: "occupation", label: "Occupation", type: "text", placeholder: "e.g. Farmer" },
+  { 
+    id: "occupation", 
+    label: "Occupation", 
+    type: "select", 
+    options: [
+      { value: "", label: "Select an occupation" },
+      { value: "Farmer", label: "Farmer" },
+      { value: "Dealer", label: "Dealer" },
+      { value: "Company", label: "Company" },
+      { value: "Other", label: "Other" }
+    ]
+  },
   { id: "zipcode", label: "Zipcode", type: "text", placeholder: "e.g. 123456" },
 ];
 
@@ -494,23 +505,42 @@ export default function VisitorRegistration() {
 
           {/* Fields */}
           <div style={styles.fields}>
-            {FIELDS.map(({ id, label, type, placeholder }) => (
+            {FIELDS.map(({ id, label, type, placeholder, options }) => (
               <div key={id} style={styles.fieldGroup}>
                 <label style={styles.label} htmlFor={id}>
                   {label}
                 </label>
-                <input
-                  id={id}
-                  name={id}
-                  type={type}
-                  value={form[id]}
-                  onChange={handleChange}
-                  placeholder={placeholder}
-                  style={{
-                    ...styles.input,
-                    ...(errors[id] ? styles.inputError : {}),
-                  }}
-                />
+                {type === "select" ? (
+                  <select
+                    id={id}
+                    name={id}
+                    value={form[id]}
+                    onChange={handleChange}
+                    style={{
+                      ...styles.select,
+                      ...(errors[id] ? styles.inputError : {}),
+                    }}
+                  >
+                    {options.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                ) : (
+                  <input
+                    id={id}
+                    name={id}
+                    type={type}
+                    value={form[id]}
+                    onChange={handleChange}
+                    placeholder={placeholder}
+                    style={{
+                      ...styles.input,
+                      ...(errors[id] ? styles.inputError : {}),
+                    }}
+                  />
+                )}
                 {errors[id] && <span style={styles.error}>{errors[id]}</span>}
               </div>
             ))}
@@ -716,6 +746,18 @@ const styles = {
     fontFamily: "'DM Sans', sans-serif",
     outline: "none",
     transition: "border-color 0.18s",
+  },
+  select: {
+    background: "var(--bg)",
+    border: "1.5px solid var(--border)",
+    borderRadius: 8,
+    padding: "11px 14px",
+    fontSize: 15,
+    color: "var(--ink)",
+    fontFamily: "'DM Sans', sans-serif",
+    outline: "none",
+    transition: "border-color 0.18s",
+    cursor: "pointer",
   },
   inputError: {
     borderColor: "#d9534f",
